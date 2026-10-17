@@ -311,12 +311,12 @@ h3 {
 
 .currency-value {
   font-weight: 700;
-  color: #0d2d39;
+  color: var(--green-deep, #0c5d4b);
   white-space: nowrap;
 }
 
 .currency-value.positive {
-  color: #0f8a63;
+  color: var(--green-deep, #0c5d4b);
 }
 
 .muted-title {
@@ -336,7 +336,7 @@ h3 {
 
 .exchange-value {
   font-weight: 700;
-  color: #0d2d39;
+  color: var(--green-deep, #0c5d4b);
   font-size: 1.08rem;
 }
 
