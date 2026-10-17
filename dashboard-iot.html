@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AquaMotriz | Dashboard IoT</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="index.html" class="brand">
+          <img class="brand-mark" src="assets/aquamotriz-logo.svg" alt="Logo AquaMotriz" />
+          <span>AquaMotriz</span>
+        </a>
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="planteamiento.html">Planteamiento</a>
+          <a href="problematica.html">Problemática</a>
+          <a href="antecedentes.html">Antecedentes</a>
+          <a href="ejes-valor.html">Ejes</a>
+          <a href="iot.html">IoT</a>
+          <a href="funcionamiento.html">Funcionamiento</a>
+          <a href="viabilidad.html">Viabilidad</a>
+          <a href="plan-implementacion.html">Plan</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Dashboard IoT</div>
+            <h2>Monitoreo inteligente del sistema</h2>
+          </div>
+        </div>
+
+        <div class="iot-dashboard">
+          <div class="iot-column">
+            <div class="iot-card">
+              <h4>Depósito</h4>
+              <div class="reading">78% <small>agua</small></div>
+            </div>
+            <div class="iot-card">
+              <h4>Presión</h4>
+              <div class="reading">2.4 <small>bar</small></div>
+            </div>
+            <div class="iot-card">
+              <h4>Caudal</h4>
+              <div class="reading">18 <small>L/min</small></div>
+            </div>
+          </div>
+
+          <div class="center-node">
+            <div class="node-box">
+              <div class="status-chip">● Sistema activo</div>
+              <div class="microchip"></div>
+              <h3 style="margin-bottom: 0;">ESP32</h3>
+              <p style="margin: 10px 0 0; color: rgba(255,255,255,0.72);">Control del riego</p>
+              <div class="signal">
+                <span>Señal</span>
+                <span class="dot"></span>
+              </div>
+              <div class="sparkline" aria-hidden="true">
+                <span style="height: 25%;"></span>
+                <span style="height: 54%;"></span>
+                <span style="height: 46%;"></span>
+                <span style="height: 78%;"></span>
+                <span style="height: 62%;"></span>
+                <span style="height: 90%;"></span>
+                <span style="height: 86%;"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="iot-column">
+            <div class="iot-card">
+              <h4>Humedad</h4>
+              <div class="reading">42% <small>suelo</small></div>
+            </div>
+            <div class="iot-card">
+              <h4>Temperatura</h4>
+              <div class="reading">27° <small>C</small></div>
+            </div>
+            <div class="iot-card">
+              <h4>Batería</h4>
+              <div class="reading">92% <small>carga</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">AquaMotriz · De residuo a recurso, del campo al futuro.</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

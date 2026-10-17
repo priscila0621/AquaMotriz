@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AquaMotriz | Estructura IoT</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="index.html" class="brand">
+          <img class="brand-mark" src="assets/aquamotriz-logo.svg" alt="Logo AquaMotriz" />
+          <span>AquaMotriz</span>
+        </a>
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="planteamiento.html">Planteamiento</a>
+          <a href="problematica.html">Problemática</a>
+          <a href="antecedentes.html">Antecedentes</a>
+          <a href="ejes-valor.html">Ejes</a>
+          <a href="iot.html">IoT</a>
+          <a href="funcionamiento.html">Funcionamiento</a>
+          <a href="viabilidad.html">Viabilidad</a>
+          <a href="plan-implementacion.html">Plan</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Estructura IoT</div>
+            <h2>Arquitectura del sistema</h2>
+          </div>
+        </div>
+
+        <div class="iot-architecture-shell">
+          <h3 class="architecture-title">Arquitectura IoT: riego comunitario con motor recuperado</h3>
+          <p class="architecture-subtitle">Flujo desde los sensores del tanque y cultivo hasta el bombeo, el riego y el registro de datos</p>
+
+          <div class="architecture-flow">
+            <article class="architecture-panel panel-left">
+              <div class="panel-header">⚙ 1. SENSADO</div>
+
+              <div class="sensor-item">
+                <div class="sensor-icon water"></div>
+                <div class="sensor-copy">
+                  <strong>Nivel del depósito</strong>
+                  <span>Flotador o sensor de nivel</span>
+                  <small>Protege la bomba contra trabajo en seco</small>
+                </div>
+              </div>
+
+              <div class="sensor-item">
+                <div class="sensor-icon soil"></div>
+                <div class="sensor-copy">
+                  <strong>Humedad del suelo</strong>
+                  <span>Sensor capacitivo en el cultivo</span>
+                  <small>Solicita riego cuando el suelo lo requiere</small>
+                </div>
+              </div>
+
+              <div class="sensor-item">
+                <div class="sensor-icon power"></div>
+                <div class="sensor-copy">
+                  <strong>Estado eléctrico</strong>
+                  <span>Corriente del motor / energía</span>
+                  <small>Medite consumo y detecta anomalías</small>
+                </div>
+              </div>
+
+              <div class="sensor-note">Señales de baja tensión hacia el controlador</div>
+            </article>
+
+            <div class="architecture-arrow" aria-hidden="true"></div>
+
+            <article class="architecture-panel panel-center">
+              <div class="panel-header dark">● 2. CONTROL Y TELEMETRÍA</div>
+
+              <div class="esp32-box">
+                <div class="esp32-chip"></div>
+                <div class="esp32-name">ESP32</div>
+                <div class="esp32-sub">Control local del riego</div>
+              </div>
+
+              <div class="esp32-actions">
+                <span>Lógica de control</span>
+                <span>Umbrales / horarios</span>
+              </div>
+
+              <div class="esp32-network">Wi‑Fi / MQTT o HTTP*</div>
+
+              <p class="esp32-text">
+                Si nivel suficiente y suelo seco activa bombeo por tiempo definido
+              </p>
+
+              <div class="esp32-footnote">
+                
+              </div>
+            </article>
+
+            <div class="architecture-arrow" aria-hidden="true"></div>
+
+            <article class="architecture-panel panel-right">
+              <div class="panel-header">⚙ 3. ACCIÓN Y USO</div>
+
+              <div class="sensor-item">
+                <div class="sensor-icon pump"></div>
+                <div class="sensor-copy">
+                  <strong>Etapa de potencia protegida</strong>
+                  <span>Interfaz aislada y protección adecuada</span>
+                  <small>Conmuta el motor; ESP32 no lo alimenta directo</small>
+                </div>
+              </div>
+
+              <div class="sensor-item">
+                <div class="sensor-icon motor"></div>
+                <div class="sensor-copy">
+                  <strong>Motor de licuadora recuperado</strong>
+                  <span>Acciona una bomba compatible mediante acople mecánico protegido</span>
+                </div>
+              </div>
+
+              <div class="sensor-item">
+                <div class="sensor-icon flow"></div>
+                <div class="sensor-copy">
+                  <strong>Bombeo y riego por goteo</strong>
+                  <span>Lleva agua del depósito al cultivo</span>
+                  <small>Se detiene por nivel, humedad o temporizador</small>
+                </div>
+              </div>
+
+              <div class="sensor-note">Panel de datos: nivel, humedad, estado y consumo</div>
+            </article>
+          </div>
+
+          <div class="security-block">
+            <div class="security-header">SEGURIDAD Y VIABILIDAD</div>
+            <p>
+              El motor de licuadora puede ser de alta velocidad y no apto para servicio continuo. Verificar placa, tipo de motor, potencia, velocidad y bomba antes de dimensionar el acople.
+            </p>
+            <p>
+              Usar aislamiento, protecciones y una etapa de potencia compatible; mantener toda conexión eléctrica protegida del agua. Prototipo conceptual, pendiente de validación.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">AquaMotriz · De residuo a recurso, del campo al futuro.</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

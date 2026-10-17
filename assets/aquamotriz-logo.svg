@@ -1,0 +1,27 @@
+<svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AquaMotriz logo">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#a9dff2"/>
+      <stop offset="100%" stop-color="#7ec6de"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#2d5f4f"/>
+      <stop offset="100%" stop-color="#1a3d39"/>
+    </linearGradient>
+  </defs>
+  <circle cx="110" cy="110" r="94" fill="url(#g2)"/>
+  <g opacity="0.9">
+    <path d="M67 94L83 59L97 94H67Z" fill="#0f6a5d"/>
+    <path d="M117 94L133 59L147 94H117Z" fill="#0f6a5d"/>
+    <path d="M84 94h50l-8 24H92l-8-24Z" fill="#0f6a5d"/>
+  </g>
+  <g>
+    <path d="M50 80C50 56 70 36 94 36c17 0 32 10 38 24 10-7 22-10 34-7 24 6 39 31 33 55-6 31-33 55-66 55H92c-31 0-57-24-59-54-1-12 4-26 17-33z" fill="#3a7a57" opacity="0.65"/>
+  </g>
+  <path d="M108 40c35 0 64 26 66 60 1 20-7 38-23 52C153 152 138 160 124 160H92c-16 0-31-8-41-23-12-18-15-40-9-60 8-26 31-37 66-37zm0 24c-24 0-42 17-44 38-2 18 8 35 24 46h34c18 0 35-10 44-27 8-15 7-33-4-47-9-11-27-10-54-10z" fill="url(#g1)"/>
+  <path d="M70 74c11-11 25-17 41-17 13 0 27 5 36 16 9 10 16 22 18 35-8-4-17-6-26-6-18 0-35 7-48 20-7 7-13 16-18 26-3-19-2-40 6-54 2-3 5-6 9-9z" fill="#dff7d9" opacity="0.75"/>
+  <path d="M100 141C67 137 48 114 46 87c4 23 12 42 34 51 15 7 29 8 41 8 23 0 44-10 63-23 1 15-8 31-22 38-18 9-41 12-62 9z" fill="#eaf9ff" opacity="0.45"/>
+  <g fill="#2a7157">
+    <path d="M84 128c8-2 14-5 18-11 3-5 6-9 8-16 4 8 9 15 16 20 6 5 13 8 20 10-10 4-20 6-31 6-10 0-20-2-31-9z"/>
+  </g>
+</svg>

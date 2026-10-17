@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaMotriz - Estaciones Agro-Hídricas Eficientes</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-blue: #31b3ff;
+      --primary-green: #006838;
+      --accent-yellow: #ffd43d;
+      --dark-bg: #0f172a;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --bg-light: #f8fafc;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-bottom: 40px;
+    }
+
+    /* Header & Navbar */
+    header {
+      background: linear-gradient(135deg, var(--primary-green) 0%, #004d28 100%);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 45px;
+      height: 45px;
+      background: var(--accent-yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-green);
+      font-size: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .brand-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .brand-name span {
+      color: var(--primary-blue);
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 5px 0;
+    }
+
+    nav button {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.88rem;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    nav button:hover, nav button.active {
+      background: var(--accent-yellow);
+      color: var(--primary-green);
+      border-color: var(--accent-yellow);
+      font-weight: 600;
+      transform: translateY(-2px);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 25px auto;
+      padding: 0 20px;
+    }
+
+    /* Screens/Tab Content */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Banner / Screen 1 */
+    .hero-card {
+      background: linear-gradient(135deg, rgba(49, 179, 255, 0.1) 0%, rgba(0, 104, 56, 0.05) 100%);
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid rgba(49, 179, 255, 0.2);
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-quote {
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--primary-green);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-quote::before, .hero-quote::after {
+      content: '"';
+      color: var(--primary-blue);
+      font-size: 2rem;
+    }
+
+    /* Cards Layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--primary-green);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .card-accent-blue {
+      border-top-color: var(--primary-blue);
+    }
+
+    .card-accent-yellow {
+      border-top-color: var(--accent-yellow);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .icon-green { background: rgba(0, 104, 56, 0.1); color: var(--primary-green); }
+    .icon-blue { background: rgba(49, 179, 255, 0.15); color: #0077b6; }
+    .icon-yellow { background: rgba(255, 212, 61, 0.2); color: #b78103; }
+
+    .card-title {
+      font-size: 1.25rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--primary-green);
+      margin-bottom: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 25px;
+      font-size: 0.98rem;
+    }
+
+    /* IoT Dashboard Styling */
+    .dashboard-container {
+      background: #f1f5f9;
+      border-radius: 20px;
+      padding: 25px;
+      border: 1px solid var(--border-color);
+    }
+
+    .dash-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .dash-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 104, 56, 0.1);
+      color: var(--primary-green);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    .dash-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .dash-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      border-left: 6px solid var(--primary-green);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    .dash-val {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-green);
+      margin-top: 5px;
+    }
+
+    .dash-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .dash-icon-bg {
+      font-size: 2.2rem;
+      color: var(--primary-blue);
+      opacity: 0.85;
+    }
+
+    /* IoT Architecture Scheme */
+    .arch-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .arch-box {
+      flex: 1;
+      min-width: 280px;
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-color);
+    }
+
+    .arch-box-header {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: var(--primary-green);
+      border-bottom: 2px solid var(--accent-yellow);
+      padding-bottom: 8px;
+    }
+
+    .arch-item {
+      background: var(--bg-light);
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .arch-item strong {
+      display: block;
+      color: var(--text-dark);
+    }
+
+    .esp32-center-box {
+      background: #0f172a;
+      color: white;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .esp32-center-box .arch-box-header {
+      color: var(--accent-yellow);
+      border-bottom-color: var(--primary-blue);
+    }
+
+    /* Video Placeholder */
+    .video-container {
+      width: 100%;
+      height: 380px;
+      background: #1e293b;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-top: 20px;
+      border: 2px dashed var(--primary-blue);
+      position: relative;
+    }
+
+    .video-container i {
+      font-size: 4rem;
+      color: var(--accent-yellow);
+      margin-bottom: 15px;
+    }
+
+    /* Timeline Implementation */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      border-left: 4px solid var(--primary-green);
+      margin-top: 20px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -39px;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent-yellow);
+      border: 4px solid var(--primary-green);
+    }
+
+    .timeline-badge {
+      background: var(--primary-blue);
+      color: white;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .timeline-content h4 {
+      color: var(--primary-green);
+      margin-bottom: 8px;
+    }
+
+    .timeline-content ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+      font-size: 0.92rem;
+    }
+
+    .timeline-result {
+      background: rgba(0, 104, 56, 0.08);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary-green);
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    th {
+      background: var(--primary-green);
+      color: white;
+      text-align: left;
+      padding: 14px;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.92rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tag-green { color: var(--primary-green); font-weight: 700; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      nav {
+        width: 100%;
+      }
+      .hero-card {
+        padding: 25px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado / Navegación -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">
+        <i class="fa-solid fa-droplet"></i>
+      </div>
+      <div class="brand-name">Aqua<span>Motriz</span></div>
+    </div>
+    <nav>
+      <button class="active" onclick="showTab('inicio')"><i class="fa-solid fa-house"></i> Inicio</button>
+      <button onclick="showTab('planteamiento')"><i class="fa-solid fa-file-lines"></i> Planteamiento</button>
+      <button onclick="showTab('problemática')"><i class="fa-solid fa-lightbulb"></i> Solución</button>
+      <button onclick="showTab('ejes')"><i class="fa-solid fa-compass"></i> Ejes de Valor</button>
+      <button onclick="showTab('iot-arch')"><i class="fa-solid fa-network-wired"></i> Estructura IoT</button>
+      <button onclick="showTab('funcionamiento')"><i class="fa-solid fa-gears"></i> Funcionamiento</button>
+      <button onclick="showTab('dashboard')"><i class="fa-solid fa-chart-line"></i> Dashboard IoT</button>
+      <button onclick="showTab('viabilidad')"><i class="fa-solid fa-calculator"></i> Viabilidad</button>
+      <button onclick="showTab('plan')"><i class="fa-solid fa-calendar-check"></i> Plan Implementación</button>
+      <button onclick="showTab('antecedentes')"><i class="fa-solid fa-history"></i> Antecedentes</button>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- 1. PANTALLA INICIO -->
+    <section id="inicio" class="tab-content active">
+      <div class="hero-card">
+        <div class="hero-quote">
+          "Transformando la chatarra de hoy en la energía e irrigación que alimentarán las cosechas del mañana."
+        </div>
+        <p style="max-width: 800px; margin: 0 auto; color: var(--text-dark); font-size: 1.05rem;">
+          <strong>AquaMotriz</strong> es un proyecto enfocado en la recuperación electromecánica de motores en desuso para crear Estaciones Agro-Hídricas de bajo costo para pequeños productores.
+        </p>
+      </div>
+
+      <div class="card card-accent-blue">
+        <div class="card-header">
+          <div class="card-icon icon-blue">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h2 class="card-title">El Reto Tecnológico y Social</h2>
+        </div>
+        <p style="margin-bottom: 12px; color: var(--text-dark);">
+          Los electrodomésticos en desuso (caminadoras, bombas de agua, lavarropas, ventiladores, herramientas) poseen motores eléctricos funcionales metálicos o de materiales durables, que terminan habitualmente como chatarra.
+        </p>
+        <p style="color: var(--text-dark);">
+          <strong>El desafío consiste en:</strong> seleccionar un actor beneficiario concreto en la región (pequeños productores hortícolas, talleres comunitarios, centros de rehabilitación) y presentar una propuesta integral para recuperar y dar un nuevo propósito a estos motores, justificando la elección en función de su viabilidad técnica, impacto social/económico y facilidad de adopción.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. PANTALLA PLANTEAMIENTO -->
+    <section id="planteamiento" class="tab-content">
+      <h2 class="section-title"><i class="fa-solid fa-align-left"></i> Planteamiento de la Situación</h2>
+      <p class="section-subtitle">Diagnóstico del problema ambiental y socioeconómico regional.</p>
+      
+      <div class="grid-2">
+        <div class="card card-accent-yellow">
+          <div class="card-header">
+            <div class="card-icon icon-yellow"><i class="fa-solid fa-dumpster"></i></div>
+            <h3 class="card-title">Acumulación de Chatarra Electrónica</h3>
+          </div>
+          <p>La acumulación masiva de electrodomésticos en desuso (bombas de agua, lavarropas, caminadoras) convertidos prematuramente en chatarra tecnológica genera severa contaminación ambiental y desperdicio de metales preciosos e ingenieriles reutilizables.</p>
+        </div>
+
+        <div class="card card-accent-blue">
+          <div class="card-header">
+            <div class="card-icon icon-blue"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <h3 class="card-title">Barrera Económica en el Campo</h3>
+          </div>
+          <p>Falta de acceso de los pequeños productores hortícolas a sistemas de bombeo y riego eficientes debido a los altos costos de la maquinaria comercial, lo que genera desperdicio de agua, baja productividad agrícola y vulnerabilidad económica.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PANTALLA PROBLEMÁTICA / SOLUCIÓN -->
+    <section id="problemática" class="tab-content">
+      <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i> Solución Propuesta</h2>
+      <p class="section-subtitle">Innovación electromecánica al servicio de la agricultura circular.</p>
+      
+      <div class="card" style="border-top-color: var(--primary-green); background: linear-gradient(to right, #ffffff, #f0fdf4);">
+        <div class="card-header">
+          <div class="card-icon icon-green"><i class="fa-solid fa-seedling"></i></div>
+          <h3 class="card-title">Estaciones Agro-Hídricas Eficientes de Bajo Costo</h3>
+        </div>
+        <p style="font-size: 1.05rem; line-height: 1.7;">
+          La solución integral combina el <strong>reciclaje técnico/electromecánico</strong> con un modelo de impacto social y agrícola sostenible. Consiste en desarrollar un <strong>sistema modular de reciclaje, adaptación y automatización</strong> de motores domésticos para transformarlos en <strong>Estaciones Agro-Hídricas Eficientes</strong> de bajo costo, adaptadas a parcelas rurales.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. PANTALLA EJES DE VALOR -->
+    <section id="ejes" class="tab-content">
+      <h2 class="section-title"><i class="fa-solid fa-compass"></i> Ejes Estratégicos de Valor</h2>
+      <p class="section-subtitle">Pilares del diseño e impacto del proyecto AquaMotriz.</p>
+
+      <div class="grid-3">
+        <div class="card card-accent-blue">
+          <div class="card-header">
+            <div class="card-icon icon-blue"><i class="fa-solid fa-microchip"></i></div>
+            <h3 class="card-title">1. Recuperación e Innovación</h3>
+          </div>
+          <p>Evaluar, clasificar, reacondicionar y adaptar motores recuperados, incorporando automatización y protecciones eléctricas según los requerimientos de cada aplicación.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon icon-green"><i class="fa-solid fa-wheat-awn"></i></div>
+            <h3 class="card-title">2. Accesibilidad & Productividad</h3>
+          </div>
+          <p>Diseñar estaciones de bombeo y riego de bajo costo, adaptadas a las condiciones de las parcelas, las necesidades hídricas y la capacidad económica de sus usuarios.</p>
+        </div>
+
+        <div class="card card-accent-yellow">
+          <div class="card-header">
+            <div class="card-icon icon-yellow"><i class="fa-solid fa-recycle"></i></div>
+            <h3 class="card-title">3. Economía Circular</h3>
+          </div>
+          <p>Priorizar la reutilización segura de motores y componentes, prolongar su vida útil y gestionar responsablemente las piezas que no puedan recuperarse.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PANTALLA ESTRUCTURA IOT -->
+    <section id="iot-arch" class="tab-content">
+      <h2 class="section-title"><i class="fa-solid fa-network-wired"></i> Arquitectura IoT del Sistema</h2>
+      <p class="section-subtitle">Flujo desde los sensores del tanque y cultivo hasta el bombeo, el riego y la telemetría.</p>
+
+      <div class="arch-flow">
+        <!-- Sensado -->
+        <div class="arch-box">
+          <div class="arch-box-header"><i class="fa-solid fa-eye"></i> 1. SENSADO</div>
+          <div class="arch-item">
+            <strong>Nivel del Depósito</strong>
+            Flotador o sensor de nivel. Protege la bomba contra trabajo en seco.
+          </div>
+          <div class="arch-item">
+            <strong>Humedad del Suelo</strong>
+            Sensor capacitivo en el cultivo. Solicita riego según necesidad real.
+          </div>
+          <div class="arch-item">
+            <strong>Estado Eléctrico</strong>
+            Monitoreo de corriente/energía para detectar anomalías en el motor.
+          </div>
+        </div>
+
+        <!-- Control ESP32 -->
+        <div class="arch-box esp32-center-box">
+          <div class="arch-box-header"><i class="fa-solid fa-brain"></i> 2. CONTROL Y TELEMETRÍA</div>
+          <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary-blue); margin: 10px 0;">ESP32</div>
+          <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 12px;">Control Local + Telemetría Opcional</p>
+          <div style="background: rgba(255,255,255,0.1); padding: 8px; border-radius: 8px; font-size: 0.82rem; margin-bottom: 8px;">Lógica de Control / Umbrales / Horarios</div>
+          <div style="background: rgba(255,255,255,0.1); padding: 8px; border-radius: 8px; font-size: 0.82rem;">Conectividad Wi-Fi / MQTT / HTTP</div>
+        </div>
+
+        <!-- Acción -->
+        <div class="arch-box">
+          <div class="arch-box-header"><i class="fa-solid fa-bolt"></i> 3. ACCIÓN Y USO</div>
+          <div class="arch-item">
+            <strong>Etapa de Potencia Protegida</strong>
+            Interfaz aislada y relés/protecciones para conmutación segura del motor.
+          </div>
+          <div class="arch-item">
+            <strong>Motor Reacondicionado</strong>
+            Acciona la bomba mediante acople mecánico dimensionado y protegido.
+          </div>
+          <div class="arch-item">
+            <strong>Bombeo y Riego por Goteo</strong>
+            Lleva agua al cultivo de forma controlada y automatizada.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PANTALLA FUNCIONAMIENTO -->
+    <section id="funcionamiento" class="tab-content">
+      <h2 class="section-title"><i class="fa-solid fa-gears"></i> Diagramas de Funcionamiento y Demostración</h2>
+      <p class="section-subtitle">Esquema funcional de circuito hídrico, eléctrico y modelo 3D.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--primary-green); margin-bottom: 15px;"><i class="fa-solid fa-water"></i> Circuito de Agua e Hidráulica</h3>
+          <p style="font-size: 0.9rem;">
+            <strong>Depósito de agua</strong> &rarr; <strong>Bomba accionado por motor recuperado</strong> &rarr; <strong>Filtro y tubería</strong> &rarr; <strong>Huerto comunitario (Goteo)</strong> &rarr; <strong>Retorno / Recirculación (Opcional)</strong>.
+          </p>
+        </div>
+
+        <div class="card card-accent-yellow">
+          <h3 style="color: var(--primary-green); margin-bottom: 15px;"><i class="fa-solid fa-plug"></i> Alimentación y Protección</h3>
+          <p style="font-size: 0.9rem;">
+            <strong>Alimentación eléctrica</strong> &rarr; <strong>Protección sobrecorriente</strong> &rarr; <strong>Interruptor / Control</strong> &rarr; <strong>Motor Recuperado</strong> &rarr; <strong>Sensor de Nivel (Auto-apagado seco)</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Video 3D Placeholder -->
+      <div class="video-container">
+        <i class="fa-solid fa-circle-play"></i>
+        <h3>Demostración en Video 3D de la Estación Agro-Hídrica</h3>
+        <p style="font-size: 0.88rem; color: #94a3b8; margin-top: 5px;">(Espacio reservado para inserción del video en 3D / Prototipo)</p>
+      </div>
+    </section>
+
+    <!-- 7. PANTALLA DASHBOARD IOT EN TIEMPO REAL -->
+    <section id="dashboard" class="tab-content">
+      <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> Dashboard IoT en Tiempo Real</h2>
+      <p class="section-subtitle">Monitoreo constante mediante el Nodo Biocreativa Hub / ESP32 AquaMotriz.</p>
+
+      <div class="dashboard-container">
+        <div class="dash-header">
+          <div class="dash-status">
+            <div class="status-dot"></div> Sistema Operativo - Transmitiendo Datos
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="dash-card">
+            <div>
+              <div class="dash-label">Temperatura Ambiente</div>
+              <div class="dash-val">28°C</div>
+            </div>
+            <div class="dash-icon-bg"><i class="fa-solid fa-temperature-three-quarters"></i></div>
+          </div>
+
+          <div class="dash-card">
+            <div>
+              <div class="dash-label">Humedad del Suelo</div>
+              <div class="dash-val">51%</div>
+            </div>
+            <div class="dash-icon-bg"><i class="fa-solid fa-droplet"></i></div>
+          </div>
+
+          <div class="dash-card">
+            <div>
+              <div class="dash-label">Lluvia Detectada</div>
+              <div class="dash-val">No</div>
+            </div>
+            <div class="dash-icon-bg"><i class="fa-solid fa-cloud-sun"></i></div>
+          </div>
+
+          <div class="dash-card">
+            <div>
+              <div class="dash-label">Energía Solar / Auxiliar</div>
+              <div class="dash-val">88%</div>
+            </div>
+            <div class="dash-icon-bg"><i class="fa-solid fa-solar-panel"></i></div>
+          </div>
+
+          <div class="dash-card">
+            <div>
+              <div class="dash-label">Productores Beneficiados</div>
+              <div class="dash-val">27</div>
+            </div>
+            <div class="dash-icon-bg"><i class="fa-solid fa-users"></i></div>
+          </div>
+
+          <div class="dash-card">
+            <div>
+              <div class="dash-label">Batería del Nodo</div>
+              <div class="dash-val">93%</div>
+            </div>
+            <div class="dash-icon-bg"><i class="fa-solid fa-battery-full"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PANTALLA VIABILIDAD FINANCIERA -->
+    <section id="viabilidad" class="tab-content">
+      <h2 class="section-title"><i class="fa-solid fa-calculator"></i> Viabilidad Financiera (MVP)</h2>
+      <p class="section-subtitle">Kit de riego con motores de electrodomésticos recuperados · Piloto en Nicaragua (CÓRDOBAS Y DÓLARES).</p>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Indicador Clave</th>
+              <th>C$ (NIO)</th>
+              <th>US$</th>
+              <th>Lectura y Justificación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Costo unitario del kit</strong></td>
+              <td>C$12,589.26</td>
+              <td>US$343.74</td>
+              <td>Materiales, insumos de conexión y mano de obra, más 5% de imprevistos.</td>
+            </tr>
+            <tr>
+              <td><strong>Precio de venta</strong></td>
+              <td>C$18,000.00</td>
+              <td>US$491.48</td>
+              <td>Costo + (1 - margen), redondeado a la centena.</td>
+            </tr>
+            <tr>
+              <td><strong>Utilidad bruta por kit</strong></td>
+              <td class="tag-green">C$5,410.74</td>
+              <td class="tag-green">US$147.74</td>
+              <td>Lo que deja cada kit vendido.</td>
+            </tr>
+            <tr>
+              <td><strong>Inversión inicial del taller</strong></td>
+              <td>C$19,113.10</td>
+              <td>US$521.87</td>
+              <td>Herramientas, banco de pruebas y capital de trabajo.</td>
+            </tr>
+            <tr>
+              <td><strong>Gastos fijos anuales</strong></td>
+              <td>C$31,500.00</td>
+              <td>US$860.08</td>
+              <td>Transporte, promoción y cuota administrativa.</td>
+            </tr>
+            <tr>
+              <td><strong>Kits de equilibrio al año</strong></td>
+              <td colspan="2" style="text-align: center; font-weight:700;">6 Kits</td>
+              <td>Cantidad mínima requerida para cubrir los gastos fijos del taller.</td>
+            </tr>
+            <tr>
+              <td><strong>VAN a 5 años (Tasa 12%)</strong></td>
+              <td class="tag-green">C$164,217.83</td>
+              <td class="tag-green">US$4,483.85</td>
+              <td>Valor Neto Creado por el negocio.</td>
+            </tr>
+            <tr>
+              <td><strong>Tasa Interna de Retorno (TIR)</strong></td>
+              <td colspan="2" style="text-align: center; font-weight:700; color: var(--primary-green);">162.9%</td>
+              <td>Alta rentabilidad sobre la inversión inicial acotada.</td>
+            </tr>
+            <tr>
+              <td><strong>Tiempo de Recuperación</strong></td>
+              <td colspan="2" style="text-align: center; font-weight:700;">9.6 Meses</td>
+              <td>Meta cumplida en menos de 12 meses.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 9. PANTALLA PLAN DE IMPLEMENTACIÓN -->
+    <section id="plan" class="tab-content">
+      <h2 class="section-title"><i class="fa-solid fa-calendar-check"></i> Plan de Implementación</h2>
+      <p class="section-subtitle">Cronograma proyectado a 3 meses para validación del prototipo.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-badge">MES 1</span>
+          <div class="timeline-content">
+            <h4>Planificación, Recolección y Evaluación</h4>
+            <ul>
+              <li>Identificar pequeños productores y sus necesidades hídricas/riego.</li>
+              <li>Recolectar motores de electrodomésticos en desuso de la comunidad.</li>
+              <li>Evaluar su estado técnico y seleccionar los mecánicamente aptos.</li>
+              <li>Definir el diseño hidráulico y los materiales necesarios.</li>
+            </ul>
+            <div class="timeline-result"><i class="fa-solid fa-check"></i> Resultado: Motores seleccionados y diseño definido.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-badge" style="background: var(--primary-green);">MES 2</span>
+          <div class="timeline-content">
+            <h4>Construcción, Recuperación y Ensamblaje</h4>
+            <ul>
+              <li>Reacondicionar y limpiar los motores seleccionados.</li>
+              <li>Integrar los componentes eléctricos, de potencia e hidráulicos.</li>
+              <li>Incorporar controles de automatización y protecciones de seguridad.</li>
+              <li>Realizar pruebas técnicas iniciales en banco de pruebas.</li>
+            </ul>
+            <div class="timeline-result"><i class="fa-solid fa-check"></i> Resultado: Prototipo funcional ensamblado y evaluado.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-badge" style="background: #b78103;">MES 3</span>
+          <div class="timeline-content">
+            <h4>Validación, Prueba y Mejora</h4>
+            <ul>
+              <li>Instalar el prototipo en una parcela piloto de pequeño productor.</li>
+              <li>Evaluar el funcionamiento continuo de bombeo y riego.</li>
+              <li>Recopilar retroalimentación del productor y detectar mejoras.</li>
+              <li>Documentar costos finales, resultados e indicadores de réplica.</li>
+            </ul>
+            <div class="timeline-result"><i class="fa-solid fa-check"></i> Resultado: Sistema validado en campo y manual de réplica.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. PANTALLA ANTECEDENTES -->
+    <section id="antecedentes" class="tab-content">
+      <h2 class="section-title"><i class="fa-solid fa-history"></i> Antecedentes e Investigaciones</h2>
+      <p class="section-subtitle">Registro histórico e investigaciones previas sustentando el proyecto.</p>
+
+      <div class="card" style="border-left: 4px solid var(--primary-blue);">
+        <p style="color: var(--text-muted); font-style: italic;">
+          [Esta sección se encuentra lista para integrar la documentación y aportes enviados por Emilse].
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>AquaMotriz &copy; 2026 - Soluciones Agro-Hídricas de Economía Circular e IoT</p>
+  </footer>
+
+  <!-- Script para Navegación -->
+  <script>
+    function showTab(tabId) {
+      // Ocultar todas las pestañas
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Desactivar todos los botones
+      const buttons = document.querySelectorAll('nav button');
+      buttons.forEach(button => button.classList.remove('active'));
+
+      // Mostrar pestaña seleccionada y activar botón correspondiente
+      document.getElementById(tabId).classList.add('active');
+      
+      const activeBtn = Array.from(buttons).find(b => b.getAttribute('onclick').includes(tabId));
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

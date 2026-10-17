@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AquaMotriz | Funcionamiento</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="index.html" class="brand">
+          <img class="brand-mark" src="assets/aquamotriz-logo.svg" alt="Logo AquaMotriz" />
+          <span>AquaMotriz</span>
+        </a>
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="planteamiento.html">Planteamiento</a>
+          <a href="problematica.html">Problemática</a>
+          <a href="antecedentes.html">Antecedentes</a>
+          <a href="ejes-valor.html">Ejes</a>
+          <a href="iot.html">IoT</a>
+          <a href="funcionamiento.html">Funcionamiento</a>
+          <a href="viabilidad.html">Viabilidad</a>
+          <a href="plan-implementacion.html">Plan</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Funcionamiento</div>
+            <h2>Flujo operativo del sistema</h2>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="section">
+        <div class="grid-3">
+          <div class="card">
+            <h3>1. Captación</h3>
+            <p>Se almacena agua en un reservorio de uso agrícola con control de nivel.</p>
+          </div>
+          <div class="card">
+            <h3>2. Automatización</h3>
+            <p>El sistema mide humedad, flujo y presión, y activa la bomba cuando es necesario.</p>
+          </div>
+          <div class="card">
+            <h3>3. Riego eficiente</h3>
+            <p>El agua se distribuye según demanda real y el sistema puede monitorear su operación.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section diagrams-showcase">
+        <div class="premium-diagram-grid">
+          <article class="premium-diagram-card">
+            <div class="diagram-label">Circuito de agua</div>
+            <svg viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circuito de agua de AquaMotriz">
+              <defs>
+                <linearGradient id="water-gradient" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#dff9ff"/>
+                  <stop offset="100%" stop-color="#8bd0ea"/>
+                </linearGradient>
+                <linearGradient id="soil-gradient" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#d9ef90"/>
+                  <stop offset="100%" stop-color="#85c96c"/>
+                </linearGradient>
+                <marker id="diagram-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="6" markerHeight="6" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0 0 L12 6 L0 12 z" fill="#2d7b73"/>
+                </marker>
+              </defs>
+              <rect x="0" y="0" width="1200" height="300" rx="28" fill="#eef8fb" stroke="#d3e8ee"/>
+              <rect x="60" y="95" width="170" height="110" rx="18" fill="#eaf8fd" stroke="#79b7cf" stroke-width="3"/>
+              <path d="M80 170 Q120 130 160 170 Q200 205 230 170 L230 180 L80 180 Z" fill="url(#water-gradient)" opacity="0.9"/>
+              <path d="M70 185 L230 185" stroke="#76bfd6" stroke-width="4" stroke-linecap="round"/>
+              <text x="145" y="84" text-anchor="middle" font-size="18" fill="#183b48" font-weight="700">Depósito</text>
+
+              <rect x="285" y="95" width="150" height="110" rx="18" fill="#edf4f6" stroke="#79b7cf" stroke-width="3"/>
+              <circle cx="360" cy="148" r="34" fill="#8ecbdb"/>
+              <path d="M336 148 L352 118 L370 148 L352 178 Z" fill="none" stroke="#1b4660" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M352 118 L352 178" stroke="#1b4660" stroke-width="5" stroke-linecap="round"/>
+              <text x="360" y="84" text-anchor="middle" font-size="18" fill="#183b48" font-weight="700">Bomba</text>
+
+              <rect x="500" y="90" width="190" height="120" rx="18" fill="#edf4f6" stroke="#79b7cf" stroke-width="3"/>
+              <rect x="548" y="118" width="96" height="62" rx="10" fill="#d8f4ff" stroke="#5f8da2" stroke-width="3"/>
+              <path d="M560 150 H630" stroke="#2a6f7e" stroke-width="7" stroke-linecap="round"/>
+              <path d="M578 132 V170" stroke="#2a6f7e" stroke-width="7" stroke-linecap="round"/>
+              <path d="M608 132 V170" stroke="#2a6f7e" stroke-width="7" stroke-linecap="round"/>
+              <text x="595" y="78" text-anchor="middle" font-size="18" fill="#183b48" font-weight="700">Filtro</text>
+
+              <rect x="760" y="90" width="170" height="120" rx="18" fill="#edf4f6" stroke="#79b7cf" stroke-width="3"/>
+              <path d="M788 156 H895 L873 180 H810 Z" fill="url(#soil-gradient)"/>
+              <path d="M790 150 C800 135 820 128 840 131 C864 135 875 152 888 154" fill="none" stroke="#509f5e" stroke-width="5" stroke-linecap="round"/>
+              <text x="845" y="78" text-anchor="middle" font-size="18" fill="#183b48" font-weight="700">Huerto</text>
+
+              <rect x="995" y="95" width="150" height="110" rx="18" fill="#edf4f6" stroke="#79b7cf" stroke-width="3"/>
+              <path d="M1038 136 H1102 V184 H1038 Z" fill="#dff9ff" stroke="#2d7b73" stroke-width="3"/>
+              <path d="M1044 140 L1102 140" stroke="#2d7b73" stroke-width="3"/>
+              <text x="1070" y="80" text-anchor="middle" font-size="18" fill="#183b48" font-weight="700">Retorno</text>
+
+              <line x1="230" y1="150" x2="285" y2="150" stroke="#2d7b73" stroke-width="6" stroke-linecap="round" marker-end="url(#diagram-arrow)"/>
+              <line x1="435" y1="150" x2="500" y2="150" stroke="#2d7b73" stroke-width="6" stroke-linecap="round" marker-end="url(#diagram-arrow)"/>
+              <line x1="690" y1="150" x2="760" y2="150" stroke="#2d7b73" stroke-width="6" stroke-linecap="round" marker-end="url(#diagram-arrow)"/>
+              <line x1="930" y1="150" x2="995" y2="150" stroke="#2d7b73" stroke-width="6" stroke-linecap="round" marker-end="url(#diagram-arrow)"/>
+              <path d="M1085 205 V250 H145 V170" fill="none" stroke="#2d7b73" stroke-width="4" stroke-dasharray="10 12" stroke-linecap="round" marker-end="url(#diagram-arrow)"/>
+            </svg>
+          </article>
+
+          <article class="premium-diagram-card">
+            <div class="diagram-label">Alimentación, accionamiento y control</div>
+            <svg viewBox="0 0 1180 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Alimentación, accionamiento y control de AquaMotriz">
+              <defs>
+                <linearGradient id="orange-accent" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#f7b76a"/>
+                  <stop offset="100%" stop-color="#ef8d46"/>
+                </linearGradient>
+                <marker id="orange-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="6" markerHeight="6" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0 0 L12 6 L0 12 z" fill="#ef8d46"/>
+                </marker>
+                <marker id="green-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="6" markerHeight="6" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0 0 L12 6 L0 12 z" fill="#3d8d65"/>
+                </marker>
+              </defs>
+              <rect x="0" y="0" width="1180" height="300" rx="28" fill="#f4f7f5" stroke="#dfe9e7"/>
+
+              <rect x="35" y="95" width="150" height="110" rx="18" fill="#f8f9fa" stroke="#c4d2d8" stroke-width="3"/>
+              <path d="M75 145 L105 110 M105 110 L135 145 M135 145 L105 180 M105 180 L75 145" fill="none" stroke="#374752" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M105 110 V180" stroke="#374752" stroke-width="5" stroke-linecap="round"/>
+              <path d="M75 145 H135" stroke="#374752" stroke-width="5" stroke-linecap="round"/>
+              <text x="110" y="78" text-anchor="middle" font-size="18" fill="#243f4a" font-weight="700">Alimentación</text>
+
+              <line x1="185" y1="150" x2="265" y2="150" stroke="url(#orange-accent)" stroke-width="7" stroke-linecap="round" marker-end="url(#orange-arrow)"/>
+
+              <rect x="265" y="95" width="170" height="110" rx="18" fill="#fffaf2" stroke="#f1bd74" stroke-width="3"/>
+              <path d="M310 135 L380 135 M345 115 L345 175" stroke="#f5a54a" stroke-width="6" stroke-linecap="round"/>
+              <path d="M325 150 L405 150" stroke="#ef8d46" stroke-width="8" stroke-linecap="round"/>
+              <path d="M328 120 L378 172" stroke="#ef8d46" stroke-width="6" stroke-linecap="round"/>
+              <text x="350" y="78" text-anchor="middle" font-size="18" fill="#243f4a" font-weight="700">Protección</text>
+
+              <line x1="435" y1="150" x2="520" y2="150" stroke="url(#orange-accent)" stroke-width="7" stroke-linecap="round" marker-end="url(#orange-arrow)"/>
+
+              <rect x="520" y="95" width="170" height="110" rx="18" fill="#edf5ff" stroke="#7fa7d8" stroke-width="3"/>
+              <rect x="565" y="130" width="80" height="38" rx="16" fill="#2b4f68"/>
+              <circle cx="584" cy="149" r="11" fill="#74d1fc"/>
+              <circle cx="614" cy="149" r="11" fill="#6fbf7d"/>
+              <circle cx="644" cy="149" r="11" fill="#e7d369"/>
+              <text x="605" y="78" text-anchor="middle" font-size="18" fill="#243f4a" font-weight="700">Control</text>
+
+              <line x1="690" y1="150" x2="775" y2="150" stroke="url(#orange-accent)" stroke-width="7" stroke-linecap="round" marker-end="url(#orange-arrow)"/>
+
+              <rect x="775" y="95" width="170" height="110" rx="18" fill="#f7f7f7" stroke="#d9d0bd" stroke-width="3"/>
+              <circle cx="860" cy="150" r="34" fill="#eef0ef" stroke="#4f5f67" stroke-width="4"/>
+              <path d="M860 120 V180 M830 150 H890" stroke="#4f5f67" stroke-width="5" stroke-linecap="round"/>
+              <text x="860" y="78" text-anchor="middle" font-size="18" fill="#243f4a" font-weight="700">Motor</text>
+
+              <line x1="945" y1="150" x2="1015" y2="150" stroke="url(#orange-accent)" stroke-width="7" stroke-linecap="round" marker-end="url(#orange-arrow)"/>
+
+              <rect x="1015" y="95" width="135" height="110" rx="18" fill="#f9fbf8" stroke="#b2d7b8" stroke-width="3"/>
+              <path d="M1056 151 L1073 135 L1088 151 L1073 167 Z" fill="#3d8d65"/>
+              <path d="M1089 138 L1099 150 L1089 162" fill="none" stroke="#3d8d65" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="1082" y="78" text-anchor="middle" font-size="18" fill="#243f4a" font-weight="700">Sensor</text>
+
+              <path d="M1082 210 L1082 248 H128 L128 180" fill="none" stroke="#3d8d65" stroke-width="4" stroke-dasharray="10 12" stroke-linecap="round" marker-end="url(#green-arrow)"/>
+            </svg>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="video-box" aria-label="Video 3D de AquaMotriz">
+          <div class="video-poster-card">
+            <div class="video-poster-content">
+              <span class="video-tag">AquaMotriz 3D</span>
+              <h3>Prototipo</h3>
+              
+              <button class="play-video-trigger" type="button">▶ Ver video</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="video-modal" id="videoModal" aria-hidden="true">
+        <div class="video-modal-dialog">
+          <button class="close-video-modal" type="button" aria-label="Cerrar video">✕</button>
+          <video controls playsinline preload="metadata" src="assets/aquamotriz-video.mp4" type="video/mp4">
+            Tu navegador no soporta reproducción de video.
+          </video>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">AquaMotriz · De residuo a recurso, del campo al futuro.</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

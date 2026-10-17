@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AquaMotriz | IoT</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="index.html" class="brand">
+          <img class="brand-mark" src="assets/aquamotriz-logo.svg" alt="Logo AquaMotriz" />
+          <span>AquaMotriz</span>
+        </a>
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="planteamiento.html">Planteamiento</a>
+          <a href="problematica.html">Problemática</a>
+          <a href="antecedentes.html">Antecedentes</a>
+          <a href="ejes-valor.html">Ejes</a>
+          <a href="iot.html" class="active">IoT</a>
+          <a href="funcionamiento.html">Funcionamiento</a>
+          <a href="viabilidad.html">Viabilidad</a>
+          <a href="plan-implementacion.html">Plan</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="section">
+        <div class="section-header compact-header">
+          <div>
+            <div class="kicker">IoT</div>
+            <h2>Monitoreo y arquitectura del sistema</h2>
+          </div>
+        </div>
+
+        <div class="iot-tabs" aria-label="Selector de vista IoT">
+          <button class="iot-tab is-active" type="button" data-iot-tab="dashboard">Dashboard</button>
+          <button class="iot-tab" type="button" data-iot-tab="estructura">Estructura</button>
+        </div>
+
+        <div class="iot-panel is-active" data-iot-panel="dashboard">
+          <div class="structure-dashboard">
+            <div class="dashboard-header">
+              <div>
+                <h3>Dashboard de datos</h3>
+                <p>Monitoreo de agua, riego, cultivo y motor recuperado</p>
+              </div>
+              <div class="dashboard-pill" data-current-date>● Hoy · --</div>
+            </div>
+
+            <div class="metric-grid">
+              <article class="mini-stat-card blue">
+                <div class="mini-stat-header">
+                  <span class="mini-label">Nivel del tanque</span>
+                  <span class="mini-icon water"></span>
+                </div>
+                <div class="mini-value">68 <span>%</span></div>
+                <small>510 de 750 litros</small>
+              </article>
+
+              <article class="mini-stat-card green">
+                <div class="mini-stat-header">
+                  <span class="mini-label">Agua utilizada</span>
+                  <span class="mini-icon drop"></span>
+                </div>
+                <div class="mini-value">120 <span>L</span></div>
+                <small>Hoy · en 2 ciclos de riego</small>
+              </article>
+
+              <article class="mini-stat-card mint">
+                <div class="mini-stat-header">
+                  <span class="mini-label">Humedad del suelo</span>
+                  <span class="mini-icon leaf"></span>
+                </div>
+                <div class="mini-value">31 <span>%</span></div>
+                <small>Cultivo 1 · requiere seguimiento</small>
+              </article>
+
+              <article class="mini-stat-card purple">
+                <div class="mini-stat-header">
+                  <span class="mini-label">Estado del motor</span>
+                  <span class="mini-icon motor"></span>
+                </div>
+                <div class="mini-value motor-status">Operativo</div>
+                <small>Bombea detenido · sin alertas</small>
+              </article>
+            </div>
+
+            <div class="chart-grid">
+              <article class="panel-card wide-panel">
+                <div class="panel-head">
+                  <div>
+                    <h4>Nivel del tanque</h4>
+                    <p>Porcentaje de capacidad durante el día</p>
+                  </div>
+                </div>
+                <svg class="chart-svg" viewBox="0 0 620 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gráfico de nivel del tanque">
+                  <g opacity="0.35" stroke="#7a9199" stroke-width="1">
+                    <line x1="40" y1="30" x2="600" y2="30"/>
+                    <line x1="40" y1="75" x2="600" y2="75"/>
+                    <line x1="40" y1="120" x2="600" y2="120"/>
+                    <line x1="40" y1="165" x2="600" y2="165"/>
+                  </g>
+                  <path d="M40 120 C110 95, 150 80, 200 85 S310 65, 360 70 S470 58, 520 62 S570 55, 600 68 L600 170 L40 170 Z" fill="rgba(74, 172, 220, 0.18)"/>
+                  <path d="M40 120 C110 95, 150 80, 200 85 S310 65, 360 70 S470 58, 520 62 S570 55, 600 68" fill="none" stroke="#2e9ad6" stroke-width="4" stroke-linecap="round"/>
+                  <g fill="#2e9ad6">
+                    <circle cx="200" cy="85" r="4"/>
+                    <circle cx="360" cy="70" r="4"/>
+                    <circle cx="520" cy="62" r="4"/>
+                    <circle cx="600" cy="68" r="4"/>
+                  </g>
+                </svg>
+                <div class="axis-labels">
+                  <span>06:00</span>
+                  <span>09:00</span>
+                  <span>12:00</span>
+                  <span>15:00</span>
+                  <span>18:00</span>
+                </div>
+              </article>
+
+              <article class="panel-card narrow-panel">
+                <div class="panel-head compact">
+                  <div>
+                    <h4>Agua utilizada</h4>
+                    <p>Litros por día · últimos 7 días</p>
+                  </div>
+                </div>
+                <div class="bar-chart" aria-label="Bar chart of water usage">
+                  <span style="height: 33%"><i>S</i></span>
+                  <span style="height: 52%"><i>D</i></span>
+                  <span style="height: 45%"><i>L</i></span>
+                  <span style="height: 72%"><i>M</i></span>
+                  <span style="height: 66%"><i>X</i></span>
+                  <span style="height: 58%"><i>J</i></span>
+                  <span style="height: 80%"><i>V</i></span>
+                </div>
+              </article>
+            </div>
+
+            <div class="chart-grid">
+              <article class="panel-card wide-panel">
+                <div class="panel-head">
+                  <div>
+                    <h4>Humedad del suelo</h4>
+                    <p>Promedio diario del cultivo 1</p>
+                  </div>
+                </div>
+                <svg class="chart-svg" viewBox="0 0 620 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gráfico de humedad del suelo">
+                  <g opacity="0.35" stroke="#7a9199" stroke-width="1">
+                    <line x1="40" y1="30" x2="600" y2="30"/>
+                    <line x1="40" y1="75" x2="600" y2="75"/>
+                    <line x1="40" y1="120" x2="600" y2="120"/>
+                    <line x1="40" y1="165" x2="600" y2="165"/>
+                  </g>
+                  <path d="M40 120 C100 88, 170 94, 230 99 S350 100, 420 110 S520 70, 600 92" fill="none" stroke="#9b63d9" stroke-width="4" stroke-linecap="round"/>
+                  <g fill="#9b63d9">
+                    <circle cx="230" cy="99" r="4"/>
+                    <circle cx="420" cy="110" r="4"/>
+                    <circle cx="600" cy="92" r="4"/>
+                  </g>
+                </svg>
+                <div class="axis-labels compact-labels">
+                  <span>Lun</span>
+                  <span>Mar</span>
+                  <span>Mié</span>
+                  <span>Jue</span>
+                  <span>Vie</span>
+                </div>
+              </article>
+
+              <article class="panel-card narrow-panel activity-panel">
+                <div class="panel-head compact">
+                  <div>
+                    <h4>Actividad reciente</h4>
+                    <p>Lecturas y eventos registrados por la estación</p>
+                  </div>
+                </div>
+                <ul class="activity-list">
+                  <li>
+                    <span class="dot green"></span>
+                    <div>
+                      <strong>10:30</strong> · Riego automático finalizado
+                      <small>Cultivo 1 · 15 minutos · agua estimada: 60 L</small>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="dot teal"></span>
+                    <div>
+                      <strong>09:55</strong> · Nivel del tanque actualizado
+                      <small>68% · 510 L disponible</small>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="dot purple"></span>
+                    <div>
+                      <strong>08:00</strong> · Humedad del suelo registrada
+                      <small>Cultivo 1 · 31%</small>
+                    </div>
+                  </li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="context-grid">
+              <article class="context-card">
+                <h4>Historial</h4>
+                <ul>
+                  <li>Riego programado 2 veces hoy</li>
+                  <li>Último ajuste: 08:45 AM</li>
+                  <li>Motor operativo sin fallos</li>
+                </ul>
+              </article>
+
+              <article class="context-card">
+                <h4>Parcela</h4>
+                <div class="tag-block">Parcela 03</div>
+                <p>Huertos de la zona norte · 320 m²</p>
+              </article>
+
+              <article class="context-card">
+                <h4>Sectores</h4>
+                <div class="sector-list">
+                  <span>Hortalizas</span>
+                  <span>Riego</span>
+                  <span>Agua</span>
+                  <span>Motor</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="iot-panel" data-iot-panel="estructura">
+          <div class="iot-architecture-shell">
+            <h3 class="architecture-title">Arquitectura IoT: riego comunitario con motor recuperado</h3>
+            <p class="architecture-subtitle">Flujo desde los sensores del tanque y cultivo hasta el bombeo, el riego y el registro de datos</p>
+
+            <div class="architecture-flow">
+              <article class="architecture-panel panel-left">
+                <div class="panel-header">⚙ 1. SENSADO</div>
+
+                <div class="sensor-item">
+                  <div class="sensor-icon water"></div>
+                  <div class="sensor-copy">
+                    <strong>Nivel del depósito</strong>
+                    <span>Flotador o sensor de nivel</span>
+                    <small>Protege la bomba contra trabajo en seco</small>
+                  </div>
+                </div>
+
+                <div class="sensor-item">
+                  <div class="sensor-icon soil"></div>
+                  <div class="sensor-copy">
+                    <strong>Humedad del suelo</strong>
+                    <span>Sensor capacitivo en el cultivo</span>
+                    <small>Solicita riego cuando el suelo lo requiere</small>
+                  </div>
+                </div>
+
+                <div class="sensor-item">
+                  <div class="sensor-icon power"></div>
+                  <div class="sensor-copy">
+                    <strong>Estado eléctrico</strong>
+                    <span>Corriente del motor / energía</span>
+                    <small>Medite consumo y detecta anomalías</small>
+                  </div>
+                </div>
+
+                <div class="sensor-note">Señales de baja tensión hacia el controlador</div>
+              </article>
+
+              <div class="architecture-arrow" aria-hidden="true"></div>
+
+              <article class="architecture-panel panel-center">
+                <div class="panel-header dark">● 2. CONTROL Y TELEMETRÍA</div>
+
+                <div class="esp32-box">
+                  <div class="esp32-chip"></div>
+                  <div class="esp32-name">ESP32</div>
+                  <div class="esp32-sub">Control local del riego</div>
+                </div>
+
+                <div class="esp32-actions">
+                  <span>Lógica de control</span>
+                  <span>Umbrales / horarios</span>
+                </div>
+
+                <div class="esp32-network">Wi‑Fi / MQTT o HTTP*</div>
+
+                <p class="esp32-text">
+                  Si nivel suficiente y suelo seco activa bombeo por tiempo definido
+                </p>
+
+              </article>
+
+              <div class="architecture-arrow" aria-hidden="true"></div>
+
+              <article class="architecture-panel panel-right">
+                <div class="panel-header">⚙ 3. ACCIÓN Y USO</div>
+
+                <div class="sensor-item">
+                  <div class="sensor-icon pump"></div>
+                  <div class="sensor-copy">
+                    <strong>Etapa de potencia protegida</strong>
+                    <span>Interfaz aislada y protección adecuada</span>
+                    <small>Conmuta el motor; ESP32 no lo alimenta directo</small>
+                  </div>
+                </div>
+
+                <div class="sensor-item">
+                  <div class="sensor-icon motor"></div>
+                  <div class="sensor-copy">
+                    <strong>Motor de licuadora recuperado</strong>
+                    <span>Acciona una bomba compatible mediante acople mecánico protegido</span>
+                  </div>
+                </div>
+
+                <div class="sensor-item">
+                  <div class="sensor-icon flow"></div>
+                  <div class="sensor-copy">
+                    <strong>Bombeo y riego por goteo</strong>
+                    <span>Lleva agua del depósito al cultivo</span>
+                    <small>Se detiene por nivel, humedad o temporizador</small>
+                  </div>
+                </div>
+
+                <div class="sensor-note">Panel de datos: nivel, humedad, estado y consumo</div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">AquaMotriz · De residuo a recurso, del campo al futuro.</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
